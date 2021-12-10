@@ -17,9 +17,7 @@ typedef struct parms Parms;
 /** U S E R   I N T E R F A C E ****************************************/
 
 /* This function simply displays helpful usage information if the
- * program is called improperly or with no command line arguments.
- *
- * You don't need to know how this function works. */
+ * program is called improperly or with no command line arguments. */
 void print_usage(const char *cmd)
 {
   printf("Usage: %s MODE filename\n\n"
@@ -45,9 +43,7 @@ void print_usage(const char *cmd)
 
 /* This function parses the command line arguments supplied in
  * argc/argv and populates the Params struct with the mode and filename
- * specified by the user on the command line.
- *
- * You don't need to know how this function works. */
+ * specified by the user on the command line. */
 int get_parms(Parms *parms, const char *modes, int argc, char **argv)
 {
   int i = 0;
@@ -76,7 +72,6 @@ int get_parms(Parms *parms, const char *modes, int argc, char **argv)
  * function effectively just concatenates two strings. */
 char *filename_add_ext(const char *filename, const char *ext)
 {
-  /* Your code goes here! */
   /* The 1 is for the . */
   int new_length = strlen(filename) + 4;
   char *new_name = malloc(new_length);
@@ -96,7 +91,6 @@ char *filename_add_ext(const char *filename, const char *ext)
  *   "test.txt" */
 char *filename_rm_ext(const char *filename)
 {
-  /* Your code goes here! */
   int length = strlen(filename);
   char *new_name = malloc(length-4);
   strncpy(new_name, filename, length-4);
@@ -108,7 +102,6 @@ char *filename_rm_ext(const char *filename)
  * extension ".rle"; otherwise it returns a non-zero value. */
 int check_ext(const char *filename)
 {
-  /* Your code goes here! */
   if(strstr(filename, ".rle"))
   {
     return 1;
@@ -125,7 +118,6 @@ int check_ext(const char *filename)
  * returns a non-zero value. */
 int check_magic(FILE *fp)
 {
-  /* Your code goes here! */
   int i = 0, container;
   char rle[] = "!RLE";
 
@@ -152,7 +144,7 @@ int check_magic(FILE *fp)
  *   should create the file "test.bin.rle", whose contents will be the
  *   run length encoded bytes of "test.bin".
  *
- * This function is also responsible for writing the !RLE "magic" byte
+ * This function is also responsible for writing the !RLE byte
  * sequence to the first four bytes of the output file, thus marking it
  * as a genuine RLE encoded file. */
 void compress(const char *filename)
@@ -203,7 +195,7 @@ void compress(const char *filename)
  *   the run length decoded bytes of "test.bin.rle".
  *
  * This function also checks that the supplied filename has both the
- * ".rle" extension and !RLE "magic" byte sequence.  If either is not
+ * ".rle" extension and !RLE "magic" byte sequence. If either is not
  * present, this function prints an appropriate error message to stderr,
  * does not create a new file, and simply returns without performing
  * any run length decoding. */
@@ -253,11 +245,7 @@ void expand(const char *filename)
 }
 
 /* This function prints a raw byte dump of the specified file to the
- * screen.  Called when -d is supplied for mode on the command line.
- * This allows you to look at the raw bytes of any file you want, which
- * should very much help you debug your program.
- *
- * You don't need to know how this function works. */
+ * screen.  Called when -d is supplied for mode on the command line. */
 void debug(const char *filename)
 {
   unsigned char b[16];
@@ -292,10 +280,7 @@ void debug(const char *filename)
 
 /* This function generates the test file discussed in the Project
  * description document.  Called when -g is supplied for mode on the
- * command line.  This provides a file you understand the contents of,
- * which should very much help you debug your program.
- *
- * You don't need to know how this function works. */
+ * command line.  */
 void generate(const char *filename)
 {
   FILE *fp = fopen(filename, "wb");
