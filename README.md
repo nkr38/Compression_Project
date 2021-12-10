@@ -3,7 +3,8 @@ This code can generate, compress and decompress files using run length encoding.
 
 The encoding works by reading each character with getc and counting how many times that character repeats. If there isn't a repition the code prints 01 representing one occurance but for example if there was a repeating "e7e7e7" it would compress to 03e7.
 
-```Available Modes:
+```
+Available Modes:
 
   -c     Compress: Performs RLE compression on "filename"
                    and writes result to "filename.rle"
