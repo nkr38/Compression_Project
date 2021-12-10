@@ -1,4 +1,4 @@
-# compression_project
+# Compression Project
 This code can generate, compress and decompress files using run length encoding.
 
 The encoding works by reading each character with fgetc and counting how many times that character repeats. If there isn't a repetition the code prints 01 representing one occurrence but for example, if there was a repeating "e7e7e7" it would compress to 03e7.
