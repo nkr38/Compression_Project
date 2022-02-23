@@ -5,8 +5,7 @@
 
 /* Stores parameters that specify how to the program should behave.
  *
- * Populated by the get_parms() function.  You don't really need to
- * worry about this bit.  I wrote it for you. */
+ * Populated by the get_parms() function. */
 struct parms {
   char *filename;
   unsigned char mode;
